@@ -7,7 +7,7 @@ req = urllib.request.Request(url_limit)
 def getLimitTime():
     limitTime=1800
     try:
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=20) as response:
             limitTime = int(response.readline().decode('utf8'))
     except BaseException as e:
         limitTime=1800
